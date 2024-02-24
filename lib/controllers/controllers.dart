@@ -2,7 +2,7 @@ import 'package:demo1/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Controller extends GetxController with ControlTitle, ControlInput, MyVar {
+class Controller extends GetxController with ControlVar, ControlTitle, ControlInput {
   @override
   void onInit() {
     final data = [
@@ -17,7 +17,7 @@ class Controller extends GetxController with ControlTitle, ControlInput, MyVar {
   }
 }
 
-mixin MyVar {
+mixin ControlVar {
   final _myList = <MyModels>[].obs;
   List<MyModels> get myList => _myList;
 }
@@ -31,7 +31,7 @@ mixin ControlTitle {
   }
 }
 
-mixin ControlInput implements MyVar {
+mixin ControlInput implements ControlVar {
   final nameInput = TextEditingController();
   final descInput = TextEditingController();
 
@@ -47,10 +47,9 @@ mixin ControlInput implements MyVar {
     _myList.remove(myModel);
   }
 
-  void editItem(MyModels myModel, int index) {
-    nameInput.text = myModel.name;
-    descInput.text = myModel.desc;
+  void editItem(MyModels myItem) {
     final data = MyModels(name: nameInput.text, desc: descInput.text);
+    int index = _myList.indexOf(myItem);
     _myList[index] = data;
     Get.back();
   }

@@ -13,7 +13,7 @@ class HomePage extends GetView<Controller> {
         appBar: AppBar(
           title: Text(controller.myTitle),
           actions: [
-            const MyIconButtonOpenBottonSheet(),
+            const MyIconButtonOpenBottonSheet(false, null),
             IconButton(
               onPressed: () => controller.newTitle('New Title Page'),
               icon: const Icon(Icons.edit),
@@ -32,7 +32,7 @@ class HomePage extends GetView<Controller> {
                 onPressed: () => controller.deleteItem(myItem),
                 icon: const Icon(Icons.delete),
               ),
-              onLongPress: () {},
+              leading: MyIconButtonOpenBottonSheet(true, myItem),
             );
           },
         ),
