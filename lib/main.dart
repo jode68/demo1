@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'views/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   Get.put(Controller());
   runApp(const MyApp());
 }
