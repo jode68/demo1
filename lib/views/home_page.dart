@@ -13,13 +13,14 @@ class HomePage extends GetView<Controller> {
         appBar: AppBar(
           title: Text(controller.myTitle),
           actions: [
+            const MyIconButtonOpenBottonSheet(),
             IconButton(
               onPressed: () => controller.newTitle('New Title Page'),
               icon: const Icon(Icons.edit),
             ),
           ],
         ),
-        floatingActionButton: const MyFloatingActionButton(),
+        floatingActionButton: const MyFABOpenBottonSheet(),
         body: ListView.builder(
           itemCount: controller.myList.length,
           itemBuilder: (context, index) {
