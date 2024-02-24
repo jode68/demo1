@@ -1,4 +1,5 @@
 import 'package:demo1/controllers/controllers.dart';
+import 'package:demo1/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,14 +19,7 @@ class HomePage extends GetView<Controller> {
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            controller.myBottonSheet(controller);
-            controller.nameInput.clear();
-            controller.descInput.clear();
-          },
-          child: const Icon(Icons.add),
-        ),
+        floatingActionButton: const MyFloatingActionButton(),
         body: ListView.builder(
           itemCount: controller.myList.length,
           itemBuilder: (context, index) {

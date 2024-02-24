@@ -1,9 +1,8 @@
 import 'package:demo1/models/models.dart';
-import 'package:demo1/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Controller extends GetxController with ControlTitle, ControlInput, MyWidget, MyVar {
+class Controller extends GetxController with ControlTitle, ControlInput, MyVar {
   @override
   void onInit() {
     final data = [
