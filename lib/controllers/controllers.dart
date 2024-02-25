@@ -43,14 +43,13 @@ mixin ControlInput implements ControlVar {
     }
   }
 
-  void deleteItem(MyModels myModel) {
-    _myList.remove(myModel);
+  void deleteItem(int myIndex) {
+    _myList.removeAt(myIndex);
   }
 
-  void editItem(MyModels myItem) {
+  void editItem(int myIndex) {
     final data = MyModels(name: nameInput.text, desc: descInput.text);
-    int index = _myList.indexOf(myItem);
-    _myList[index] = data;
+    _myList[myIndex] = data;
     Get.back();
   }
 }

@@ -1,4 +1,3 @@
-import 'package:demo1/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:demo1/controllers/controllers.dart';
@@ -41,17 +40,17 @@ class MyFABOpenBottonSheet extends GetView<Controller> {
 }
 
 class MyIconButtonOpenBottonSheet extends GetView<Controller> {
-  const MyIconButtonOpenBottonSheet(this.editMode, this.myItem, {super.key});
+  const MyIconButtonOpenBottonSheet(this.editMode, this.myIndex, {super.key});
   final bool editMode;
-  final MyModels? myItem;
+  final int myIndex;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
         if (editMode) {
-          controller.nameInput.text = myItem!.name;
-          controller.descInput.text = myItem!.desc;
+          controller.nameInput.text = controller.myList[myIndex].name;
+          controller.descInput.text = controller.myList[myIndex].desc;
         } else {
           controller.nameInput.clear();
           controller.descInput.clear();
@@ -73,7 +72,7 @@ class MyIconButtonOpenBottonSheet extends GetView<Controller> {
                   ElevatedButton(
                     onPressed: () {
                       if (editMode) {
-                        controller.editItem(myItem!);
+                        controller.editItem(myIndex);
                       } else {
                         controller.addItem();
                       }

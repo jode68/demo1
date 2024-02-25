@@ -3,7 +3,7 @@ class MyModels {
   final String desc;
 
   MyModels({
-    required this.name,
-    required this.desc,
+    this.name = '',
+    this.desc = '',
   });
 }
